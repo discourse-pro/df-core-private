@@ -1,0 +1,15 @@
+@charset "UTF-8";
+.mobile-device {
+	.d-dropdown {width: 180px;}
+	.category-breadcrumb {display: none;}
+	.nav-pills {margin-right: 0;}
+	#create-topic, .list-controls > .container > button {
+		margin-top: 5px;
+		margin-left: 0;
+		margin-right: 4px;
+		width: 30px;
+		height: 30px;
+		overflow: hidden;
+		i {margin-right: 0;}
+	}
+}
