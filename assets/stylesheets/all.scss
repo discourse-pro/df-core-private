@@ -1,9 +1,7 @@
 @charset "UTF-8";
+$df_core_path_base: '/plugins/df-ui/';
+$df_core_path_images: '#{$df_core_path_base}images/';
+@import 'lib/_all';
+@import '_generic';
 @import '_mobile';
 @import '_ru';
-footer > h3
-, ol.category-breadcrumb
-, .topic-meta-data .username
-{display: none;}
-// Показываем навигацию разделов только когда находимся в каком-нибудь разделе.
-.categories-list ol.category-breadcrumb {display: block;}
