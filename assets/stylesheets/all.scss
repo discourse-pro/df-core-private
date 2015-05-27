@@ -1,3 +1,6 @@
 @charset "UTF-8";
 @import '_mobile';
 @import '_ru';
+footer > h3
+, ol.category-breadcrumb
+{display: none;}
