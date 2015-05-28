@@ -13,25 +13,41 @@ html {
 				, "Bitstream Vera Sans Mono"
 				, monospace
 			;
-			font-size: 20px;
 			line-height: normal;
 			font-weight: bold;
 		}
 		// Блоки кода жирным не выделяем
 		pre > code {font-weight: normal;}
-		#topic-title h1 {font-size: 2em;}
 		.topic-meta-data .names {
 			.full-name {font-weight: bold;}
 			.username {display: none;}
 		}
 		.topic-body {
-			width: 800px;
 			.contents {
 				//font-family: "OpenSansRegular",sans-serif;
 				font-family: "Open Sans",sans-serif;
+			}
+		}
+	}
+}
+html.desktop-view {
+	body {
+		code, pre {font-size: 20px;}
+		// Блоки кода жирным не выделяем
+		pre > code {font-weight: normal;}
+		#topic-title h1 {font-size: 2em;}
+		// Правило обязательно должно быть размещено на наружнем уровне,
+		// чтобы не поломать мобильный режим.
+		.topic-body {width: 800px;}
+		.topic-body {
+			.contents {
 				font-size: 16px;
 				line-height: 24px;
 			}
 		}
 	}
 }
+html.mobile-view {
+
+}
+
