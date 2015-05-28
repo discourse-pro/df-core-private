@@ -1,0 +1,37 @@
+html {
+	body {
+		// Повысил приоритет «Courier New» по сравнению с ядром.
+		code, pre {
+			font-family:
+				"Courier New"
+				, Consolas
+				, Menlo
+				, Monaco
+				, "Lucida Console"
+				, "Liberation Mono"
+				, "DejaVu Sans Mono"
+				, "Bitstream Vera Sans Mono"
+				, monospace
+			;
+			font-size: 20px;
+			line-height: normal;
+			font-weight: bold;
+		}
+		// Блоки кода жирным не выделяем
+		pre > code {font-weight: normal;}
+		#topic-title h1 {font-size: 2em;}
+		.topic-meta-data .names {
+			.full-name {font-weight: bold;}
+			.username {display: none;}
+		}
+		.topic-body {
+			width: 800px;
+			.contents {
+				//font-family: "OpenSansRegular",sans-serif;
+				font-family: "Open Sans",sans-serif;
+				font-size: 16px;
+				line-height: 24px;
+			}
+		}
+	}
+}

@@ -2,38 +2,8 @@ html {
 	font-family: 'Open Sans', sans-serif;
 	color: rgb(103, 96, 86);
 	body {
-		// Повысил приоритет «Courier New» по сравнению с ядром.
-		code, pre {
-			font-family:
-				"Courier New"
-				, Consolas
-				, Menlo
-				, Monaco
-				, "Lucida Console"
-				, "Liberation Mono"
-				, "DejaVu Sans Mono"
-				, "Bitstream Vera Sans Mono"
-				, monospace
-			;
-			font-size: 20px;
-			line-height: normal;
-			font-weight: bold;
-		}
-		// Блоки кода жирным не выделяем
-		pre > code {font-weight: normal;}
-		footer > h3
-		, ol.category-breadcrumb
-		, .topic-meta-data .username
-		{display: none;}
+		footer > h3, ol.category-breadcrumb {display: none;}
 		// Показываем навигацию разделов только когда находимся в каком-нибудь разделе.
 		.categories-list ol.category-breadcrumb {display: block;}
-		.topic-body {
-			.contents {
-				//font-family: "OpenSansRegular",sans-serif;
-				font-family: "Open Sans",sans-serif;
-				font-size: 16px;
-				line-height: 24px;
-			}
-		}
 	}
 }
