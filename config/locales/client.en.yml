@@ -2,5 +2,5 @@ en:
   js:
     filters:
       categories:
-        title: ""
+        title: "Categories"
       with_category: "%{category}"

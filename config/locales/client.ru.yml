@@ -2,5 +2,5 @@ ru:
   js:
     filters:
       categories:
-        title: ""
+        title: "Разделы"
       with_category: "%{category}"
