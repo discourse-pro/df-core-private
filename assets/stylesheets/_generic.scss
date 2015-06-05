@@ -4,6 +4,11 @@ html {
 	body {
 		footer > h3, ol.category-breadcrumb {display: none;}
 		// Показываем навигацию разделов только когда находимся в каком-нибудь разделе.
-		.categories-list ol.category-breadcrumb {display: block;}
+		// 2015-06-05
+		// В этом случае нас выручает селектор «body[class*='category-']»:
+		// https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors
+		// Надо использовать именно «*=», а не «^=»,
+		// потому что класс category-<slug> необязательно стоит первым в списке классов.
+		&[class*='category-'] {ol.category-breadcrumb {display: block;}}
 	}
 }
