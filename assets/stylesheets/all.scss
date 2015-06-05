@@ -3,6 +3,7 @@ $df_core_path_base: '/plugins/df-ui/';
 $df_core_path_images: '#{$df_core_path_base}images/';
 @import 'lib/_all';
 @import '_generic';
+@import '_category';
 @import '_topic';
 @import '_mobile';
 @import '_ru';
