@@ -1,0 +1,4 @@
+en:
+  js:
+    filters:
+      with_category: "%{category}"
