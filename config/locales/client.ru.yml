@@ -1,4 +1,6 @@
 ru:
   js:
     filters:
+      categories:
+        title: ""
       with_category: "%{category}"
