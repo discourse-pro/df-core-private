@@ -29,6 +29,7 @@ html {
 html.desktop-view {
 	body {
 		code, pre {font-size: 20px;}
+		.admin-contents {code, pre {font-size: 12px;}}
 		// Блоки кода жирным не выделяем
 		pre > code {font-weight: normal;}
 		#topic-title h1 {font-size: 2em;}
