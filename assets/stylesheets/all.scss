@@ -1,5 +1,5 @@
 @charset "UTF-8";
-$df_core_path_base: '/plugins/df-ui/';
+$df_core_path_base: '/plugins/df-core-private/';
 $df_core_path_images: '#{$df_core_path_base}images/';
 @import 'lib/_all';
 @import '_generic';
