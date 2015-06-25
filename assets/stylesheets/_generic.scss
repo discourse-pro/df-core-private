@@ -1,4 +1,9 @@
-* {tab-size:4;}
+* {
+	tab-size:4;
+	// Forefix пока не принимает во внимание это правило без префикса -moz-
+	// https://developer.mozilla.org/en-US/docs/Web/CSS/tab-size
+	-moz-tab-size:4;
+}
 html {
 	font-family: 'Open Sans', sans-serif;
 	color: rgb(103, 96, 86);
