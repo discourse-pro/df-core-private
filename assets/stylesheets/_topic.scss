@@ -20,9 +20,10 @@ html {
 		pre > code {font-weight: normal;}
 		.topic-body {
 			.contents {
-				//font-family: "OpenSansRegular",sans-serif;
 				font-family: "Open Sans",sans-serif;
 			}
+			// Чтобы https://css-tricks.com/snippets/css/make-pre-text-wrap/
+			pre {white-space: pre-wrap;}
 		}
 	}
 }
