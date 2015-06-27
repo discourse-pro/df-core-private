@@ -16,8 +16,12 @@ html {
 			line-height: normal;
 			font-weight: bold;
 		}
-		// Блоки кода жирным не выделяем
-		pre > code {font-weight: normal;}
+		pre > code {
+			// Блоки кода жирным не выделяем
+			font-weight: normal;
+			// В ядре: 500px
+			max-height: none;
+		}
 		.topic-body {
 			.contents {
 				font-family: "Open Sans",sans-serif;
