@@ -22,25 +22,56 @@ html {
 			.contents {
 				font-family: "Open Sans",sans-serif;
 			}
-			// Чтобы https://css-tricks.com/snippets/css/make-pre-text-wrap/
+			// 2015-06-27
+			// Чтобы в Firefox не появлялась горизонтальная полоса прокрутки
+			// при длинной строке кода.
+			// https://css-tricks.com/snippets/css/make-pre-text-wrap/
 			pre {white-space: pre-wrap;}
 		}
 	}
 }
 html.desktop-view {
 	body {
-		code, pre {font-size: 20px;}
+		code, pre {font-size: 18px;}
 		.admin-contents {code, pre {font-size: 12px;}}
 		// Блоки кода жирным не выделяем
 		pre > code {font-weight: normal;}
 		#topic-title h1 {font-size: 2em;}
-		// Правило обязательно должно быть размещено на наружнем уровне,
-		// чтобы не поломать мобильный режим.
-		.topic-body {width: 800px;}
-		.topic-body {
-			.contents {
-				font-size: 16px;
-				line-height: 24px;
+		.row {
+			> .gutter {
+				//background: aquamarine;
+				padding-left: 0;
+				width: 200px;
+				position: absolute;
+				top: 0;
+				left: 1010px;
+			}
+			> .topic-avatar {
+				height: 45px;
+				padding: {
+					right: 8px;
+					bottom: 8px;
+				}
+			}
+			// Правило обязательно должно быть размещено на наружнем уровне,
+			// чтобы не поломать мобильный режим.
+			//
+			// 2015-06-27
+			// Увеличил ширину текста до 900 пикселей.
+			> .topic-body {
+				width: 990px;
+				float: none;
+				.contents {
+					font-size: 16px;
+					line-height: 24px;
+					margin-top: 8px;
+				}
+				.topic-meta-data {
+					//width: 100%;
+					overflow: hidden;
+					//background: pink;
+					&:after {clear: none;}
+				}
 			}
 		}
 	}
