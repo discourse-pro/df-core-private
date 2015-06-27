@@ -39,7 +39,6 @@ html.desktop-view {
 		#topic-title h1 {font-size: 2em;}
 		.row {
 			> .gutter {
-				//background: aquamarine;
 				padding-left: 0;
 				width: 200px;
 				position: absolute;
@@ -55,9 +54,6 @@ html.desktop-view {
 			}
 			// Правило обязательно должно быть размещено на наружнем уровне,
 			// чтобы не поломать мобильный режим.
-			//
-			// 2015-06-27
-			// Увеличил ширину текста до 900 пикселей.
 			> .topic-body {
 				width: 990px;
 				float: none;
@@ -67,9 +63,7 @@ html.desktop-view {
 					margin-top: 8px;
 				}
 				.topic-meta-data {
-					//width: 100%;
 					overflow: hidden;
-					//background: pink;
 					&:after {clear: none;}
 				}
 			}
