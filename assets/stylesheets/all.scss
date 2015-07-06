@@ -1,9 +1,9 @@
 @charset "UTF-8";
 $df_core_path_base: '/plugins/df-core-private/';
 $df_core_path_images: '#{$df_core_path_base}images/';
-@import 'lib/_all';
-@import '_generic';
-@import '_category';
-@import '_topic';
-@import '_mobile';
-@import '_ru';
+@import 'lib/all';
+@import 'generic';
+@import 'category';
+@import 'topic';
+@import 'mobile';
+@import 'ru';
