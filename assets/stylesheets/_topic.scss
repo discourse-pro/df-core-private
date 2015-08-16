@@ -36,11 +36,11 @@ html {
 }
 html.desktop-view {
 	body {
-		code, pre {font-size: 20px;}
+		code, pre {font-size: 18px;}
 		.admin-contents {code, pre {font-size: 12px;}}
 		// Блоки кода жирным не выделяем
 		pre > code {font-weight: normal;}
-		#topic-title h1 {font-size: 2em;}
+		#topic-title h1 {font-size: 1.5em;}
 		.row {
 			> .gutter {
 				padding-left: 0;
@@ -62,9 +62,19 @@ html.desktop-view {
 				width: 990px;
 				float: none;
 				.contents {
-					font-size: 16px;
-					line-height: 24px;
+					font-size: 14px;
+					line-height: 20px;
 					margin-top: 8px;
+					h2 {
+						font-size: 1.4em;
+						margin:{top: 20px; bottom: 10px;}
+					}
+					h3 {
+						font-size: 1.3em;
+						margin:{top: 18px; bottom: 10px;}
+					}
+					h2 + h3 {margin-top: 0;}
+					img {margin:{top: 8px; bottom: 16px;};}
 				}
 				.topic-meta-data {
 					overflow: hidden;
