@@ -1,5 +1,5 @@
 import {decorateCooked} from 'discourse/lib/plugin-api';
-export default {name: 'df-core-private', initialize: function(c) {
+export default {name: 'df-core-private', initialize(c) {
 	decorateCooked(c, onDecorateCooked);
 }};
 /**
