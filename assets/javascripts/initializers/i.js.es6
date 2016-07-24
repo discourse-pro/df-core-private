@@ -1,6 +1,6 @@
-import {decorateCooked} from 'discourse/lib/plugin-api';
-export default {name: 'df-core-private', initialize(c) {
-	decorateCooked(c, onDecorateCooked);
+import {withPluginApi} from 'discourse/lib/plugin-api';
+export default {name: 'df-core-private', initialize() {
+	withPluginApi('0.1', api => {api.decorateCooked(onDecorateCooked);});
 }};
 /**
  * Удаляем ненужные параграфы, которые редактор вставляет
