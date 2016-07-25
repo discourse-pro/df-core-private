@@ -18,3 +18,10 @@ html {
 		&[class*='category-'] {ol.category-breadcrumb {display: block;}}
 	}
 }
+// 2016-07-25
+// В ядре отступ равен 900 пикселей.
+// https://github.com/discourse/discourse/blob/a9207dafa/app/assets/stylesheets/desktop/topic-timeline.scss#L16-L21
+// Увеличиваем его, потому что у нас страница шире.
+.timeline-container {
+	@media all and (min-width: 1250px) {margin-left: 1000px;}
+}
