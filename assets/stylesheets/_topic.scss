@@ -25,6 +25,9 @@ html {
 		.topic-body {
 			.contents {
 				font-family: "Open Sans",sans-serif;
+				// 2016-07-26
+				// В ядре overflow: hidden, из-за этого правый край слишком широких картинок не виден.
+				.cooked: {overflow: visible;}
 			}
 			// 2015-06-27
 			// Чтобы в Firefox не появлялась горизонтальная полоса прокрутки
