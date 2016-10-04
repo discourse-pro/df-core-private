@@ -62,7 +62,8 @@ html.desktop-view {
 			// Правило обязательно должно быть размещено на наружнем уровне,
 			// чтобы не поломать мобильный режим.
 			> .topic-body {
-				width: 990px;
+				// 2016-10-04
+				width: 87%;
 				float: none;
 				.contents {
 					font-size: 14px;

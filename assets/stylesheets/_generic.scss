@@ -23,5 +23,7 @@ html {
 // https://github.com/discourse/discourse/blob/a9207dafa/app/assets/stylesheets/desktop/topic-timeline.scss#L16-L21
 // Увеличиваем его, потому что у нас страница шире.
 .timeline-container {
+	// 2016-10-04
+	margin-left: 87%;
 	@media all and (min-width: 1250px) {margin-left: 1000px;}
 }
