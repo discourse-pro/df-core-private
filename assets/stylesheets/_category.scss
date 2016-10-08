@@ -1,5 +1,8 @@
 .category-list.with-topics {
 	> thead {display: none;}
-	// в ядре: 45%
-	td.category {width: 25%;}
+	td {
+		// в ядре: 45%
+		&.category {width: 35%;}
+		&.topics {display: none;}
+	}
 }
