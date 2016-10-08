@@ -16,4 +16,40 @@ after_initialize do
 			core__default_results options
 		end
 	end
+	require 'category_featured_topic'
+	CategoryFeaturedTopic.class_eval do
+		def self.feature_topics_for(c, existing=nil)
+			return if c.blank?
+
+			query_opts = {
+				per_page: SiteSetting.category_featured_topics,
+				except_topic_ids: [],
+				visible: true,
+				no_definitions: false
+			}
+
+			# Add topics, even if they're in secured categories:
+			query = TopicQuery.new(CategoryFeaturedTopic.fake_admin, query_opts)
+			results = query.list_category_topic_ids(c).uniq
+
+			# Add some topics that are visible to everyone:
+			anon_query = TopicQuery.new(nil, query_opts.merge({except_topic_ids: [] + results}))
+			results += anon_query.list_category_topic_ids(c).uniq
+
+			return if results == existing
+
+			CategoryFeaturedTopic.transaction do
+				CategoryFeaturedTopic.delete_all(category_id: c.id)
+				if results
+					results.each_with_index do |topic_id, idx|
+						begin
+							c.category_featured_topics.create(topic_id: topic_id, rank: idx)
+						rescue PG::UniqueViolation
+							# If another process features this topic, just ignore it
+						end
+					end
+				end
+			end
+		end
+	end
 end
