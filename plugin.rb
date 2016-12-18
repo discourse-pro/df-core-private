@@ -8,6 +8,10 @@ register_asset 'stylesheets/all.scss'
 # поднимать вверх при обновлении и показывать в списке тем на странице раздела».
 # https://github.com/discourse/discourse/blob/v1.7.0.beta5/lib/topic_query.rb#L498-L501
 after_initialize do
+	# 2016-12-18
+	if '15432' === SiteSetting.port
+		SiteSetting.port = '900'
+	end
 	require_dependency 'topic_query'
 	TopicQuery.class_eval do
 		alias_method :core__default_results, :default_results
