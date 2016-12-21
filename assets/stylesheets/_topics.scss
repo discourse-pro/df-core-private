@@ -2,4 +2,8 @@ body.navigation-topics {
 	// 2016-12-21
 	// Уменьшаем расстояние между верхним меню и списком тем.
 	.list-controls .nav {margin-bottom: 0;}
+	// 2016-12-21
+	// Иначе после прокрутки списка в тем вниз таблица расширяется на всю ширину экрана.
+	// http://stackoverflow.com/a/13850750
+	table.topic-list {word-break: break-all;}
 }
