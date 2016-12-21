@@ -1,8 +1,0 @@
-.category-list.with-topics {
-	> thead {display: none;}
-	td {
-		// в ядре: 45%
-		&.category {width: 35%;}
-		&.topics {display: none;}
-	}
-}
