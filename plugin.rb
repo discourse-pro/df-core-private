@@ -12,6 +12,17 @@ after_initialize do
 	if '15432' === SiteSetting.port
 		SiteSetting.port = '900'
 	end
+	# 2016-12-21
+	require 'categories_controller'
+	CategoriesController.class_eval do
+		before_filter :dfSetCategoryStyle
+		private
+		def dfSetCategoryStyle
+			SiteSetting.desktop_category_page_style =
+				params[:parent_category_id] \
+				? 'categories_with_featured_topics' : 'categories_and_latest_topics'
+		end
+	end
 	require_dependency 'topic_query'
 	TopicQuery.class_eval do
 		alias_method :core__default_results, :default_results
