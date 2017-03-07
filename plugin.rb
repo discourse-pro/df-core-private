@@ -37,7 +37,11 @@ after_initialize do
 			return if c.blank?
 
 			query_opts = {
-				per_page: SiteSetting.category_featured_topics,
+				# 2017-03-07
+				# Раньше тут стояло: per_page: SiteSetting.category_featured_topics
+				# но 2017-03-01 эта опция была удалена:
+				# https://github.com/discourse/discourse/commit/26201660#diff-aeb865119
+				per_page: c.num_featured_topics,
 				except_topic_ids: [],
 				visible: true,
 				no_definitions: false
