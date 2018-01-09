@@ -1,5 +1,5 @@
 # name: df-core-private
-# version: 1.1.0
+# version: 1.1.1
 # authors: Dmitry Fedyuk
 register_asset 'stylesheets/all.scss'
 # 2016-10-07
@@ -15,7 +15,12 @@ after_initialize do
 	# 2016-12-21
 	require 'categories_controller'
 	CategoriesController.class_eval do
-		before_filter :dfSetCategoryStyle
+		# 2018-01-10
+		# 1) «undefined method `before_filter' for CategoriesController:Class»
+		# https://github.com/discourse-pro/df-core-private/issues/3
+		# 2) «`before_filter` has been deprecated in Rails 5.0 and removed in 5.1»
+		# https://stackoverflow.com/a/45015788
+		before_action :dfSetCategoryStyle
 		private
 		def dfSetCategoryStyle
 			SiteSetting.desktop_category_page_style =
