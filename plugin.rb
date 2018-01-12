@@ -1,5 +1,5 @@
 # name: df-core-private
-# version: 1.1.1
+# version: 1.1.2
 # authors: Dmitry Fedyuk
 register_asset 'stylesheets/all.scss'
 # 2016-10-07
@@ -38,6 +38,14 @@ after_initialize do
 	end
 	require 'category_featured_topic'
 	CategoryFeaturedTopic.class_eval do
+		# 2018-01-12
+		# @see CategoryFeaturedTopic.feature_topics_for
+		# 1) [Discourse 2.0.0.beta1]
+		# «ArgumentError (wrong number of arguments (given 1, expected 0))» /
+		# «vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.4/lib/active_record/relation.rb:492:in `delete_all'»
+		# https://github.com/discourse-pro/df-core-private/issues/4
+		# 2) https://github.com/discourse/discourse/blob/v1.8.0.beta7/app/models/category_featured_topic.rb#L16-L54
+		# 3) https://github.com/discourse/discourse/blob/v2.0.0.beta1/app/models/category_featured_topic.rb#L43-L81
 		def self.feature_topics_for(c, existing=nil)
 			return if c.blank?
 
@@ -52,18 +60,24 @@ after_initialize do
 				no_definitions: false
 			}
 
-			# Add topics, even if they're in secured categories:
+			# It may seem a bit odd that we are running 2 queries here, when admin
+			# can clearly pull out all the topics needed.
+			# We do so, so anonymous will ALWAYS get some topics
+			# If we only fetched as admin we may have a situation where anon can see
+			# no featured topics (all the previous 2x topics are only visible to admins)
+
+			# Add topics, even if they're in secured categories or invisible
 			query = TopicQuery.new(CategoryFeaturedTopic.fake_admin, query_opts)
 			results = query.list_category_topic_ids(c).uniq
 
 			# Add some topics that are visible to everyone:
-			anon_query = TopicQuery.new(nil, query_opts.merge({except_topic_ids: [] + results}))
+			anon_query = TopicQuery.new(nil, query_opts.merge(except_topic_ids: [c.topic_id] + results))
 			results += anon_query.list_category_topic_ids(c).uniq
 
 			return if results == existing
 
 			CategoryFeaturedTopic.transaction do
-				CategoryFeaturedTopic.delete_all(category_id: c.id)
+				CategoryFeaturedTopic.where(category_id: c.id).delete_all
 				if results
 					results.each_with_index do |topic_id, idx|
 						begin
