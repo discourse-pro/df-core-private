@@ -17,5 +17,7 @@ body.categories-list {
 				&.topics {display: none;}
 			}
 		}
+		// 2018-01-14 It is applied to a category description at the front page.
+		.category-description {font-size: 0.9em; margin-top: 0;}
 	}
 }
