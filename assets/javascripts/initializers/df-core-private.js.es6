@@ -2,34 +2,31 @@ import CategoriesController from 'discourse/controllers/discovery/categories';
 import CategoriesRoute from 'discourse/routes/discovery-categories';
 import {withPluginApi} from 'discourse/lib/plugin-api';
 import computed from 'ember-addons/ember-computed-decorators';
-export default {name: 'df-core-private', initialize() {
-	withPluginApi('0.1', api => {
-		api.decorateCooked(onDecorateCooked);
-		// 2016-12-21
-		// https://guides.emberjs.com/v2.4.0/object-model/reopening-classes-and-instances/
-		CategoriesController.reopen({
-			@computed("model.parentCategory")
-			categoryPageStyle(parentCategory) {
-				this.siteSettings.desktop_category_page_style =
-					parentCategory
-					? 'categories_with_featured_topics'
-					: 'categories_and_latest_topics'
-				;
-				return this._super(parentCategory);
-			}
-		});
-		CategoriesRoute.reopen({
-			model() {
-				this.siteSettings.desktop_category_page_style =
-					this.get("model.parentCategory")
-					? 'categories_with_featured_topics'
-					: 'categories_and_latest_topics'
-				;
-				return this._super();
-			}
-		});
+export default {name: 'df-core-private', initialize() {withPluginApi('0.1', api => {
+	api.decorateCooked(onDecorateCooked);
+	// 2016-12-21 https://guides.emberjs.com/v2.4.0/object-model/reopening-classes-and-instances
+	CategoriesController.reopen({
+		@computed('model.parentCategory')
+		categoryPageStyle(parentCategory) {
+			this.siteSettings.desktop_category_page_style =
+				parentCategory
+				? 'categories_with_featured_topics'
+				: 'categories_and_latest_topics'
+			;
+			return this._super(parentCategory);
+		}
 	});
-}};
+	CategoriesRoute.reopen({
+		model() {
+			this.siteSettings.desktop_category_page_style =
+				this.get('model.parentCategory')
+				? 'categories_with_featured_topics'
+				: 'categories_and_latest_topics'
+			;
+			return this._super();
+		}
+	});
+});}};
 /**
  * Удаляем ненужные параграфы, которые редактор вставляет
  * при наличии внутри элементов списка блоков кода.
