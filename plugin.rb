@@ -24,8 +24,7 @@ after_initialize do
 		private
 		def dfSetCategoryStyle
 			SiteSetting.desktop_category_page_style =
-				params[:parent_category_id] \
-				? 'categories_with_featured_topics' : 'categories_and_latest_topics'
+				params[:parent_category_id] ? 'categories_with_featured_topics' : 'categories_and_latest_topics'
 		end
 	end
 	require_dependency 'topic_query'
@@ -67,7 +66,7 @@ after_initialize do
 			# no featured topics (all the previous 2x topics are only visible to admins)
 
 			# Add topics, even if they're in secured categories or invisible
-			query = TopicQuery.new(CategoryFeaturedTopic.fake_admin, query_opts)
+			query = TopicQuery.new(Discourse.system_user, query_opts)
 			results = query.list_category_topic_ids(c).uniq
 
 			# Add some topics that are visible to everyone:
