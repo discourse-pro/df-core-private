@@ -9,9 +9,7 @@ export default {name: 'df-core-private', initialize() {withPluginApi('0.1', api 
 		@computed('model.parentCategory')
 		categoryPageStyle(parentCategory) {
 			this.siteSettings.desktop_category_page_style =
-				parentCategory
-				? 'categories_with_featured_topics'
-				: 'categories_and_latest_topics'
+				parentCategory ? 'categories_with_featured_topics' : 'categories_and_latest_topics'
 			;
 			return this._super(parentCategory);
 		}
@@ -19,9 +17,7 @@ export default {name: 'df-core-private', initialize() {withPluginApi('0.1', api 
 	CategoriesRoute.reopen({
 		model() {
 			this.siteSettings.desktop_category_page_style =
-				this.get('model.parentCategory')
-				? 'categories_with_featured_topics'
-				: 'categories_and_latest_topics'
+				this.get('model.parentCategory') ? 'categories_with_featured_topics' : 'categories_and_latest_topics'
 			;
 			return this._super();
 		}
@@ -50,10 +46,8 @@ const onDecorateCooked = function($post) {
 	 */
 	/** @type {jQuery} HTMLDivElement[] */
 	$('.cooked li > pre', $post).prevAll('p').each(function() {
-		/** @type {jQuery} HTMLParagraphElement */
-		const $p = $(this);
-		/** @type {jQuery} HTMLElement[] */
-		const $children = $p.children();
-		!$children.length ? $p.remove() : $children.unwrap();
+		/** @type {jQuery} HTMLParagraphElement */ const $p = $(this);
+		/** @type {jQuery} HTMLElement[] */ const $c = $p.children();
+		!$c.length ? $p.remove() : $c.unwrap();
 	});
 };
