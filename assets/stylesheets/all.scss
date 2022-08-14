@@ -1,10 +1,11 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
 // 2022-08-14
-// 1) If not specify the full path,
-// then Discourse will include all stylesheets with the base name withing all load paths:
+// 1) A stylesheet included via `register_asset` should import other stylesheets using full paths,
+// otherwise Discourse will import all stylesheets with the specified base name found withing all load paths:
 // https://sass-lang.com/documentation/at-rules/import#load-paths.
-// 2) SASS does not allow variables in @import paths: https://stackoverflow.com/a/37569018
+// 2) Other side, sub-imports should import other stylesheets only with relative paths: full paths do not work there.
+// 3) SASS does not allow variables in @import paths: https://stackoverflow.com/a/37569018
 @import 'plugins/df-core-private/assets/stylesheets/generic';
 @import 'plugins/df-core-private/assets/stylesheets/categories';
 @import 'plugins/df-core-private/assets/stylesheets/topic';
