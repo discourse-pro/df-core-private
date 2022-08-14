@@ -7,4 +7,4 @@
 // 2022-08-14
 // `./` is required here, otherwise Discourse will include all stylesheets named «mobile» withing load paths:
 // https://sass-lang.com/documentation/at-rules/import#load-paths.
-@import './mobile';
+@import 'plugins/df-core-private/assets/stylesheets/mobile';
