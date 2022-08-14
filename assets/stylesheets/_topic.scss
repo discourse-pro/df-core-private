@@ -1,25 +1,27 @@
-html {
-	body {
-		// Повысил приоритет «Courier New» по сравнению с ядром.
-		code, pre {
-			font-family:
-				"Courier New"
-				, Consolas
-				, Menlo
-				, Monaco
-				, "Lucida Console"
-				, "Liberation Mono"
-				, "DejaVu Sans Mono"
-				, "Bitstream Vera Sans Mono"
-				, monospace
-			;
-			line-height: normal;
-			font-weight: bold;
-		}
-		pre > code {
-			font-weight: normal; // Блоки кода жирным не выделяем
-			max-height: none; // В ядре: 500px
-		}
+body {
+	// Повысил приоритет «Courier New» по сравнению с ядром.
+	code, pre {
+		font-family:
+			"Courier New"
+			, Consolas
+			, Menlo
+			, Monaco
+			, "Lucida Console"
+			, "Liberation Mono"
+			, "DejaVu Sans Mono"
+			, "Bitstream Vera Sans Mono"
+			, monospace
+		;
+		line-height: normal;
+		font-weight: bold;
+	}
+	pre > code {
+		font-weight: normal; // Блоки кода жирным не выделяем
+		max-height: none; // В ядре: 500px
+	}
+	.container.posts {
+		// 2022-08-14 https://github.com/discourse/discourse/blob/v2.9.0.beta9/app/assets/stylesheets/common/base/topic.scss#L29
+		margin-bottom: 0;
 		.topic-body {
 			.contents {
 				font-family: "Open Sans",sans-serif;
