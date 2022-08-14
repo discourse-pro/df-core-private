@@ -1,98 +1,87 @@
-body {
-	// Повысил приоритет «Courier New» по сравнению с ядром.
-	code, pre {
-		font-family:
-			"Courier New"
-			, Consolas
-			, Menlo
-			, Monaco
-			, "Lucida Console"
-			, "Liberation Mono"
-			, "DejaVu Sans Mono"
-			, "Bitstream Vera Sans Mono"
-			, monospace
-		;
-		line-height: normal;
-		font-weight: bold;
-	}
-	pre > code {
-		font-weight: normal; // Блоки кода жирным не выделяем
-		max-height: none; // В ядре: 500px
-	}
-	.container.posts {
-		// 2022-08-14 https://github.com/discourse/discourse/blob/v2.9.0.beta9/app/assets/stylesheets/common/base/topic.scss#L29
-		margin-bottom: 0;
-		.topic-body {
-			.contents {
-				font-family: "Open Sans",sans-serif;
-				// 2016-07-26 В ядре overflow: hidden, из-за этого правый край слишком широких картинок не виден.
-				.cooked {overflow: visible;}
-			}
-			// 2015-06-27
-			// Чтобы в Firefox не появлялась горизонтальная полоса прокрутки  при длинной строке кода.
-			// https://css-tricks.com/snippets/css/make-pre-text-wrap/
-			pre {white-space: pre-wrap;}
+// Повысил приоритет «Courier New» по сравнению с ядром.
+code, pre {
+	font-family:
+		"Courier New"
+		, Consolas
+		, Menlo
+		, Monaco
+		, "Lucida Console"
+		, "Liberation Mono"
+		, "DejaVu Sans Mono"
+		, "Bitstream Vera Sans Mono"
+		, monospace
+	;
+	line-height: normal;
+	font-weight: bold;
+}
+pre > code {
+	font-weight: normal; // Блоки кода жирным не выделяем
+	max-height: none; // В ядре: 500px
+}
+.container.posts {
+	// 2022-08-14 https://github.com/discourse/discourse/blob/v2.9.0.beta9/app/assets/stylesheets/common/base/topic.scss#L29
+	margin-bottom: 0;
+	.topic-body {
+		.contents {
+			font-family: "Open Sans",sans-serif;
+			// 2016-07-26 В ядре overflow: hidden, из-за этого правый край слишком широких картинок не виден.
+			.cooked {overflow: visible;}
 		}
+		// 2015-06-27
+		// Чтобы в Firefox не появлялась горизонтальная полоса прокрутки  при длинной строке кода.
+		// https://css-tricks.com/snippets/css/make-pre-text-wrap/
+		pre {white-space: pre-wrap;}
 	}
 }
 html.desktop-view {
-	body {
-		code, pre {font-size: 18px;}
-		.admin-contents {code, pre {font-size: 12px;}}
-		pre > code {font-weight: normal;} // Блоки кода жирным не выделяем
-		#topic-title h1 {font-size: 1.5em;}
-		#main-outlet-wrapper {
-			// 2022-08-14
-			// 1) I want to make the content wider.
-			// 2) Another way to achieve it is `box-sizing: initial;` instead of `box-sizing: border-box;` set in the core:
-			// https://github.com/discourse/discourse/blob/v2.9.0.beta9/app/assets/stylesheets/common/base/discourse.scss#L679
-			padding: 0;
+	code, pre {font-size: 18px;}
+	.admin-contents {code, pre {font-size: 12px;}}
+	pre > code {font-weight: normal;} // Блоки кода жирным не выделяем
+	#topic-title h1 {font-size: 1.5em;}
+	.row {
+		// 2022-08-14
+		// 1) It is `flex` in new Discourse versions:
+		// https://github.com/discourse/discourse/blob/v2.9.0.beta9/app/assets/stylesheets/desktop/topic.scss#L124
+		// 2) I use `block` because I do not want to devote a column for the post's avatar,
+		// and want the topic's text wrap the avatar instead.
+		display: block;
+		> .gutter {
+			padding-left: 0;
+			width: 200px;
+			position: absolute;
+			top: 0;
+			left: 1010px;
 		}
-		.row {
-			// 2022-08-14
-			// 1) It is `flex` in new Discourse versions:
-			// https://github.com/discourse/discourse/blob/v2.9.0.beta9/app/assets/stylesheets/desktop/topic.scss#L124
-			// 2) I use `block` because I do not want to devote a column for the post's avatar,
-			// and want the topic's text wrap the avatar instead.
-			display: block;
-			> .gutter {
-				padding-left: 0;
-				width: 200px;
-				position: absolute;
-				top: 0;
-				left: 1010px;
+		> .topic-avatar {
+			height: 45px;
+			padding: {
+				right: 8px;
+				bottom: 8px;
 			}
-			> .topic-avatar {
-				height: 45px;
-				padding: {
-					right: 8px;
-					bottom: 8px;
+		}
+		// Правило обязательно должно быть размещено на наружнем уровне, чтобы не поломать мобильный режим.
+		> .topic-body {
+			// 2016-10-04
+			width: 87%;
+			float: none;
+			.contents {
+				font-size: 14px;
+				line-height: 20px;
+				margin-top: 8px;
+				h2 {
+					font-size: 1.4em;
+					margin:{top: 20px; bottom: 10px;}
 				}
+				h3 {
+					font-size: 1.3em;
+					margin:{top: 18px; bottom: 10px;}
+				}
+				h2 + h3 {margin-top: 0;}
+				img {margin:{top: 8px; bottom: 16px;};}
 			}
-			// Правило обязательно должно быть размещено на наружнем уровне, чтобы не поломать мобильный режим.
-			> .topic-body {
-				// 2016-10-04
-				width: 87%;
-				float: none;
-				.contents {
-					font-size: 14px;
-					line-height: 20px;
-					margin-top: 8px;
-					h2 {
-						font-size: 1.4em;
-						margin:{top: 20px; bottom: 10px;}
-					}
-					h3 {
-						font-size: 1.3em;
-						margin:{top: 18px; bottom: 10px;}
-					}
-					h2 + h3 {margin-top: 0;}
-					img {margin:{top: 8px; bottom: 16px;};}
-				}
-				.topic-meta-data {
-					overflow: hidden;
-					&:after {clear: none;}
-				}
+			.topic-meta-data {
+				overflow: hidden;
+				&:after {clear: none;}
 			}
 		}
 	}
