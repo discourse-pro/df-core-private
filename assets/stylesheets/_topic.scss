@@ -17,21 +17,17 @@ html {
 			font-weight: bold;
 		}
 		pre > code {
-			// Блоки кода жирным не выделяем
-			font-weight: normal;
-			// В ядре: 500px
-			max-height: none;
+			font-weight: normal; // Блоки кода жирным не выделяем
+			max-height: none; // В ядре: 500px
 		}
 		.topic-body {
 			.contents {
 				font-family: "Open Sans",sans-serif;
-				// 2016-07-26
-				// В ядре overflow: hidden, из-за этого правый край слишком широких картинок не виден.
+				// 2016-07-26 В ядре overflow: hidden, из-за этого правый край слишком широких картинок не виден.
 				.cooked {overflow: visible;}
 			}
 			// 2015-06-27
-			// Чтобы в Firefox не появлялась горизонтальная полоса прокрутки
-			// при длинной строке кода.
+			// Чтобы в Firefox не появлялась горизонтальная полоса прокрутки  при длинной строке кода.
 			// https://css-tricks.com/snippets/css/make-pre-text-wrap/
 			pre {white-space: pre-wrap;}
 		}
@@ -41,8 +37,7 @@ html.desktop-view {
 	body {
 		code, pre {font-size: 18px;}
 		.admin-contents {code, pre {font-size: 12px;}}
-		// Блоки кода жирным не выделяем
-		pre > code {font-weight: normal;}
+		pre > code {font-weight: normal;} // Блоки кода жирным не выделяем
 		#topic-title h1 {font-size: 1.5em;}
 		.row {
 			> .gutter {
@@ -59,8 +54,7 @@ html.desktop-view {
 					bottom: 8px;
 				}
 			}
-			// Правило обязательно должно быть размещено на наружнем уровне,
-			// чтобы не поломать мобильный режим.
+			// Правило обязательно должно быть размещено на наружнем уровне, чтобы не поломать мобильный режим.
 			> .topic-body {
 				// 2016-10-04
 				width: 87%;
