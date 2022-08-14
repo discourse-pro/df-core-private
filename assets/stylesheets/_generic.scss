@@ -25,7 +25,7 @@ html.desktop-view {
 		// 2) Another way to achieve it is `box-sizing: initial;` instead of `box-sizing: border-box;` set in the core:
 		// https://github.com/discourse/discourse/blob/v2.9.0.beta9/app/assets/stylesheets/common/base/discourse.scss#L679
 		padding: 0;
-		> #main-outlet {padding-top: 0;} // 2022-08-14
+		> #main-outlet {padding-top: 1em;} // 2022-08-14
 	}
 	.d-header > .wrap {padding: 0;} // 2022-08-14 I want to make the content wider.
 }
