@@ -40,6 +40,12 @@ html.desktop-view {
 		pre > code {font-weight: normal;} // Блоки кода жирным не выделяем
 		#topic-title h1 {font-size: 1.5em;}
 		.row {
+			// 2022-08-14
+			// 1) It is `flex` in new Discourse versions:
+			// https://github.com/discourse/discourse/blob/v2.9.0.beta9/app/assets/stylesheets/desktop/topic.scss#L124
+			// 2) I use `block` because I do not want to devote a column for the post's avatar,
+			// and want the topic's text wrap the avatar instead.
+			display: block;
 			> .gutter {
 				padding-left: 0;
 				width: 200px;
