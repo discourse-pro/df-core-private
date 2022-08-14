@@ -41,6 +41,13 @@ html.desktop-view {
 		.admin-contents {code, pre {font-size: 12px;}}
 		pre > code {font-weight: normal;} // Блоки кода жирным не выделяем
 		#topic-title h1 {font-size: 1.5em;}
+		#main-outlet-wrapper {
+			// 2022-08-14
+			// 1) I want to make the content wider.
+			// 2) Another way to achieve it is `box-sizing: initial;` instead of `box-sizing: border-box;` set in the core:
+			// https://github.com/discourse/discourse/blob/v2.9.0.beta9/app/assets/stylesheets/common/base/discourse.scss#L679
+			padding: 0;
+		}
 		.row {
 			// 2022-08-14
 			// 1) It is `flex` in new Discourse versions:
