@@ -1,5 +1,5 @@
 # name: df-core-private
-# version: 1.1.2
+# version: 1.1.3
 # authors: Dmitry Fedyuk
 register_asset 'stylesheets/all.scss'
 # 2016-10-07
