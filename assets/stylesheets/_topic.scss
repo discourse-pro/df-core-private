@@ -66,7 +66,8 @@ html.desktop-view {
 			.contents {
 				font-size: 14px;
 				line-height: 20px;
-				margin-top: 8px;
+				// 2023-03-07 I have removed it. I do not know why I used it before.
+				// margin-top: 8px;
 				h2 {
 					font-size: 1.4em;
 					margin:{top: 20px; bottom: 10px;}
