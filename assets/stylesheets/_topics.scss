@@ -1,3 +1,5 @@
+// 2024-01-29 "Fix the height of header controls": https://github.com/discourse-pro/df-core-private/issues/7
+body.category ol.category-breadcrumb > :not(:first-child) {display: none;}
 body.navigation-topics {
 	// 2016-12-21 Уменьшаем расстояние между верхним меню и списком тем.
 	.list-controls .nav {margin-bottom: 0;}
