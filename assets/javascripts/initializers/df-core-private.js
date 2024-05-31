@@ -15,11 +15,14 @@ export default {name: 'df-core-private', initialize() {withPluginApi('0.1', api 
 		}
 	});
 	CategoriesRoute.reopen({
-		model() {
+		// 2024-05-31
+		// «Cannot read properties of undefined (reading 'category_slug_path_with_id')»:
+		// https://github.com/discourse-pro/df-core-private/issues/8
+		model(params) {
 			this.siteSettings.desktop_category_page_style =
 				this.get('model.parentCategory') ? 'categories_with_featured_topics' : 'categories_and_latest_topics'
 			;
-			return this._super();
+			return this._super(params);
 		}
 	});
 });}};
