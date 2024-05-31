@@ -1,2 +1,5 @@
 en:
+  dashboard:
+    problem:
+      deprecated_linked_in_auth: ''
   powered_by_html: ''
