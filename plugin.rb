@@ -1,6 +1,6 @@
 # name: df-core-private
-# version: 1.1.3
-# authors: Dmitry Fedyuk
+# version: 1.1.4
+# authors: Dmitrii Fediuk
 register_asset 'stylesheets/all.scss'
 # 2016-10-07
 # https://code.dmitry-fedyuk.com/discourse/my/issues/3
