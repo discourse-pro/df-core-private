@@ -1,5 +1,6 @@
 en:
   js:
+    df_empty: " "
     filters:
       categories:
         title: "Categories"
