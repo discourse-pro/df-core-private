@@ -13,7 +13,7 @@ https://github.com/discourse-pro/df-core-private/issues/11 }}
     {{/if}}
   </th>
 {{/if}}
-{{raw "topic-list-header-column" order='default' name='df_empty' bulkSelectEnabled=bulkSelectEnabled showBulkToggle=toggleInTitle canBulkSelect=canBulkSelect}}
+{{raw "topic-list-header-column" order='default' name='df_empty' bulkSelectEnabled=bulkSelectEnabled showBulkToggle=toggleInTitle canBulkSelect=canBulkSelect canDoBulkActions=canDoBulkActions showTopicsAndRepliesToggle=showTopicsAndRepliesToggle newListSubset=newListSubset newRepliesCount=newRepliesCount newTopicsCount=newTopicsCount experimentalTopicBulkActionsEnabled=experimentalTopicBulkActionsEnabled bulkSelectHelper=bulkSelectHelper }}
 {{#if showPosters}}
   {{raw "topic-list-header-column" order='posters' ariaLabel=(i18n "df_empty")}}
 {{/if}}
