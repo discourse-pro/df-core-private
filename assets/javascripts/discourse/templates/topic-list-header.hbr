@@ -1,3 +1,6 @@
+{{! 2024-07-07
+"Reimplement new changes of  `app/assets/javascripts/discourse/app/raw-templates/topic-list-header.hbr`":
+https://github.com/discourse-pro/df-core-private/issues/11 }}
 {{~raw-plugin-outlet name="topic-list-header-before"~}}
 {{#if bulkSelectEnabled}}
   <th class="bulk-select">
