@@ -5,7 +5,11 @@ https://github.com/discourse-pro/df-core-private/issues/11 }}
 {{#if bulkSelectEnabled}}
   <th class="bulk-select topic-list-data">
     {{#if canBulkSelect}}
-      {{raw "flat-button" class="bulk-select" icon="list" title="topics.bulk.toggle"}}
+      {{#if experimentalTopicBulkActionsEnabled }}
+        {{raw "flat-button" class="bulk-select" icon="tasks" title="topics.bulk.toggle"}}
+      {{else}}
+        {{raw "flat-button" class="bulk-select" icon="list" title="topics.bulk.toggle"}}
+      {{/if}}
     {{/if}}
   </th>
 {{/if}}
