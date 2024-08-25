@@ -40,7 +40,8 @@ after_initialize do
 			core__default_results options
 		end
 	end
-	require 'category_featured_topic'
+	#require 'category_featured_topic'
+	require_dependency 'category_featured_topic'
 	CategoryFeaturedTopic.class_eval do
 		# 2018-01-12
 		# @see CategoryFeaturedTopic.feature_topics_for
