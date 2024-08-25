@@ -1,16 +1,6 @@
-// Повысил приоритет «Courier New» по сравнению с ядром.
+// 2024-08-26 "Improve the appearance of `<code>`": https://github.com/discourse-pro/df-core-private/issues/12
 code, pre {
-	font-family:
-		"Courier New"
-		, Consolas
-		, Menlo
-		, Monaco
-		, "Lucida Console"
-		, "Liberation Mono"
-		, "DejaVu Sans Mono"
-		, "Bitstream Vera Sans Mono"
-		, monospace
-	;
+	font-family: Consolas, "Courier New", monospace;
 	line-height: normal;
 	font-weight: bold;
 }
