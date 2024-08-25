@@ -13,10 +13,11 @@ after_initialize do
 		SiteSetting.port = '900'
 	end
 	# 2016-12-21
-	# require 'categories_controller'
 	# 2024-08-26
-	# «LoadError: cannot load such file -- categories_controller»: https://github.com/discourse-pro/df-core-private/issues/13
-	# load File.expand_path('../../app/controllers/categories_controller.rb', __dir__)
+	# 1) «LoadError: cannot load such file -- categories_controller»: https://github.com/discourse-pro/df-core-private/issues/13
+	# 2) The previous code was:
+	#	require 'categories_controller'
+	# https://github.com/discourse-pro/df-core-private/blob/1.1.5/plugin.rb#L16
 	load File.expand_path(Rails.root + 'app/controllers/categories_controller.rb')
 	CategoriesController.class_eval do
 		# 2018-01-10
