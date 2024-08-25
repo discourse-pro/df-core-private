@@ -13,7 +13,10 @@ after_initialize do
 		SiteSetting.port = '900'
 	end
 	# 2016-12-21
-	require 'categories_controller'
+	# require 'categories_controller'
+	# 2024-08-26
+	# «LoadError: cannot load such file -- categories_controller»: https://github.com/discourse-pro/df-core-private/issues/13
+	load File.expand_path('../../../app/controllers/categories_controller.rb', __FILE__)
 	CategoriesController.class_eval do
 		# 2018-01-10
 		# 1) «undefined method `before_filter' for CategoriesController:Class»
