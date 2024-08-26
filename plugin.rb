@@ -40,7 +40,11 @@ after_initialize do
 			core__default_results options
 		end
 	end
-	#require 'category_featured_topic'
+	# 2024-08-26
+	# 1) «LoadError: cannot load such file -- category_featured_topic»: https://github.com/discourse-pro/df-core-private/issues/14
+	# 2) The previous code was:
+	#	require 'category_featured_topic'
+	# https://github.com/discourse-pro/df-core-private/blob/1.1.5/plugin.rb#L38
 	require_dependency 'category_featured_topic'
 	CategoryFeaturedTopic.class_eval do
 		# 2018-01-12
