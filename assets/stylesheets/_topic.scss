@@ -106,8 +106,8 @@ aside.onebox {
 	& + br {display: none !important;}
 }
 .githubblob > header {display: none;}
-/* 2017-04-05 */
-.cooked h4, .cooked h5, .cooked h6, .d-editor-preview h4, .d-editor-preview h5, .d-editor-preview h6 {margin: 0 0 0.2em 0;}
+// 2017-04-05
+.cooked, .d-editor-preview {h4, h5, h6 {margin: 0 0 0.2em 0;}}
 pre {
 	margin-top: 0;
 	&.onebox {
