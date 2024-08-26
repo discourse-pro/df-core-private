@@ -10,8 +10,9 @@
 pre {margin-top: 0;}
 /* 2017-04-14 */
 #topic[data-topic-id="2775"] table td {vertical-align: top; border: 0;}
-/* 2017-04-30 */
-aside.onebox.githubblob  {border: 0; padding: 0; /*margin-bottom: -1em;*/}
+aside.onebox {
+	&.githubblob  {border: 0; padding: 0;}	// 2017-04-30
+}
 /* 2017-05-04 */
 pre.onebox {margin-bottom: 0;}
 /* 2017-05-04  В ядре: «padding: 0.5em». */
