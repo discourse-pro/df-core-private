@@ -5,41 +5,10 @@
  * Мои логотипы квадратны, поэтому ширина их будет такой же, как заданная здесь высота.
  */
 .category-boxes .category-box .logo, .category-boxes-with-topics .category-box .logo {height: 100px;}
-/* 2017-04-05 */
-.cooked h4, .cooked h5, .cooked h6, .d-editor-preview h4, .d-editor-preview h5, .d-editor-preview h6 {margin: 0 0 0.2em 0;}
-pre {margin-top: 0;}
 /* 2017-04-14 */
 #topic[data-topic-id="2775"] table td {vertical-align: top; border: 0;}
-/* 2017-05-04 */
-pre.onebox {margin-bottom: 0;}
 /* 2017-05-04  В ядре: «padding: 0.5em». */
 .hljs {padding: 0;}
-/**
- * 2017-05-04
- * Замечание №1
- * В ядре «margin-left: 40px».
- * Я решил уменьшить этот отступ, чтобы больше места оставалось для кода.
- * Замечание №2
- * В ядре «margin-bottom: 9px».
- */
-pre.onebox code ol.lines {margin-bottom: 0; margin-left: 35px;}
-/* 2017-05-04 Номера строк программного кода. */
-pre.onebox code ol.lines li:before {width: 30px; left: -35px;}
-/**
- * 2017-05-04
- * Замечание №1
- * С недавних пор (заметил неделю назад) Discourse стал добавлять горизонтальную полосу прокрутки
- * для блоков цитируемого с GitHub кода в том случае, когда строки кода слишком длинные.
- * Моя заплатка устраняет эту проблему: строки кода теперь переносятся (как раньше).
- * В ядре вместо моего правила стоит «white-space: pre».
- * http://stackoverflow.com/a/5108401
- * Замечание №2
- * Оказалось, что правило «white-space: pre-wrap» ещё хуже:
- * оно переносит программныф код в бессмысленных местах, делая его синтаксически некорректным.
- * Поэтому вернул «white-space: pre».
- * https://developer.mozilla.org/en-US/docs/Web/CSS/white-space?v=example#Values
- */
-pre.onebox code ol.lines li {white-space: pre;}
 /**
  * 2017-05-04
  * Ранее сам же ставил «margin-bottom: 16px» в плагине «df-core-private»:
