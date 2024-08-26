@@ -122,6 +122,7 @@ html.desktop-view {
 	}
 }
 aside.onebox {
+	margin: 0.5em 0; // 2024-08-26 "Improve the appearance of topics": https://github.com/discourse-pro/df-core-private/issues/17
 	&.githubblob  {
 		border: 0; padding: 0; // 2017-04-30
 		.onebox-body > h4 > a {font-size: smaller;}
