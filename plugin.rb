@@ -45,6 +45,9 @@ after_initialize do
 	# 2) The previous code was:
 	#	require 'category_featured_topic'
 	# https://github.com/discourse-pro/df-core-private/blob/1.1.5/plugin.rb#L38
+	# 3) Another working solution:
+	# 		load File.expand_path(Rails.root + 'app/controllers/category_featured_topic.rb')
+	# https://github.com/discourse-pro/df-core-private/blob/2024-08-26/plugin.rb#L21
 	require_dependency 'category_featured_topic'
 	CategoryFeaturedTopic.class_eval do
 		# 2018-01-12
