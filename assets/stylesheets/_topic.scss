@@ -110,7 +110,9 @@ aside.onebox {
 .cooked h4, .cooked h5, .cooked h6, .d-editor-preview h4, .d-editor-preview h5, .d-editor-preview h6 {margin: 0 0 0.2em 0;}
 pre {
 	margin-top: 0;
-	&.onebox {margin-bottom: 0;} // 2017-05-04
+	&.onebox {
+		margin-bottom: 0; // 2017-05-04
+	}
 }
 /**
  * 2017-05-04
