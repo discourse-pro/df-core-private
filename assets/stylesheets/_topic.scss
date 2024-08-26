@@ -107,6 +107,8 @@ html.desktop-view {
 	// 2024-08-26 "Improve the appearance of topics": https://github.com/discourse-pro/df-core-private/issues/17
 	p {margin: 0.25em 0 0.5em 0;}
 	.contents {
+		// 2024-08-26 "Improve the appearance of topics": https://github.com/discourse-pro/df-core-private/issues/17
+		.cooked {padding: 0 0.5em;}
 		h2 {
 			font-size: 1.4em;
 			// 2024-08-26 "Improve the appearance of headers": https://github.com/discourse-pro/df-core-private/issues/16
