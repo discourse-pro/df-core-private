@@ -33,7 +33,7 @@ pre {
 html.desktop-view {
 	// 2024-08-26 "Improve the appearance of `<code>`": https://github.com/discourse-pro/df-core-private/issues/12
 	code, pre {font-size: initial;}
-	h1, h2, h3, h4, h6, h6 {code, pre {font-size: 100%;}}
+	h1, h2, h3, h4, h6, h6 {code, pre {font-size: 110%;}}
 	.admin-contents {code, pre {font-size: 12px;}}
 	pre > code {font-weight: normal;} // Блоки кода жирным не выделяем
 	#topic-title h1 {font-size: 1.5em;}
