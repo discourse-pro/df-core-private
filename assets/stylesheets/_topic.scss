@@ -88,3 +88,21 @@ html.desktop-view {
 		img {margin:{top: 8px; bottom: 16px;};}
 	}
 }
+aside.onebox {
+	&.githubblob  {
+		border: 0; padding: 0; // 2017-04-30
+		.onebox-body > h4 > a {font-size: smaller;}
+	}
+	.onebox-body {
+		h3, h4 {margin-bottom: 5px;} // 2017-05-04 В ядре «margin-bottom: 10px».
+	}
+	/**
+	 * 2017-05-09
+	 * Используемый Discourse компилятор Markdown почему-то добавляет <br> между GitHub Onebox и <img>.
+	 * Первой попыткой устрения этой проблемы было: «br + img {margin-top: 0 !important;}»
+	 * Текущий вариант вроде получше.
+	 * https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_selectors
+	 */
+	& + br {display: none !important;}
+}
+.githubblob > header {display: none;}
