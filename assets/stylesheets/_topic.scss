@@ -112,19 +112,20 @@ pre {
 	margin-top: 0;
 	&.onebox {
 		margin-bottom: 0; // 2017-05-04
+		/**
+		 * 2017-05-04
+		 * Замечание №1
+		 * В ядре «margin-left: 40px».
+		 * Я решил уменьшить этот отступ, чтобы больше места оставалось для кода.
+		 * Замечание №2
+		 * В ядре «margin-bottom: 9px».
+		 */
+		code ol.lines {
+			margin-bottom: 0; margin-left: 35px;
+			li:before {width: 30px; left: -35px;} /* 2017-05-04 Номера строк программного кода. */
+		}
 	}
 }
-/**
- * 2017-05-04
- * Замечание №1
- * В ядре «margin-left: 40px».
- * Я решил уменьшить этот отступ, чтобы больше места оставалось для кода.
- * Замечание №2
- * В ядре «margin-bottom: 9px».
- */
-pre.onebox code ol.lines {margin-bottom: 0; margin-left: 35px;}
-/* 2017-05-04 Номера строк программного кода. */
-pre.onebox code ol.lines li:before {width: 30px; left: -35px;}
 /**
  * 2017-05-04
  * Замечание №1
