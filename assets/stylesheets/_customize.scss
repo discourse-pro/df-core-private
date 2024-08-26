@@ -45,4 +45,4 @@ pre.onebox code ol.lines li {white-space: pre;}
  * Ранее сам же ставил «margin-bottom: 16px» в плагине «df-core-private»:
  * https://github.com/discourse-pro/df-core-private/blob/fdf48f1f9/assets/stylesheets/_topic.scss?ts=4#L81
  */
-html.desktop-view body .row >.topic-body .contents img {margin-bottom: 8px;}
+html.desktop-view body .row > .topic-body .contents img {margin-bottom: 8px;}
