@@ -12,18 +12,19 @@ pre {margin-top: 0;}
 #topic[data-topic-id="2775"] table td {vertical-align: top; border: 0;}
 aside.onebox {
 	&.githubblob  {border: 0; padding: 0;}	// 2017-04-30
+	.onebox-body {
+		h3, h4 {margin-bottom: 5px;} // 2017-05-04 В ядре «margin-bottom: 10px».
+	}
 }
+
+
+aside.onebox.githubblob .onebox-body > h4 > a {font-size: smaller;}
+
 /* 2017-05-04 */
 pre.onebox {margin-bottom: 0;}
 /* 2017-05-04  В ядре: «padding: 0.5em». */
 .hljs {padding: 0;}
 .githubblob > header {display: none;}
-/**
- * 2017-05-04
- * В ядре «margin-bottom: 10px».
- */
-aside.onebox .onebox-body h3, aside.onebox .onebox-body h4 {margin-bottom: 5px;}
-aside.onebox.githubblob .onebox-body > h4 > a {font-size: smaller;}
 /**
  * 2017-05-04
  * Замечание №1
