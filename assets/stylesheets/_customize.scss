@@ -1,0 +1,65 @@
+/**
+ * 2017-04-28
+ * Высота логотипов подразделов на странице раздела
+ * при применении для опции раздела «Subcategory List Style» значения «Boxes with featured topics».
+ * Мои логотипы квадратны, поэтому ширина их будет такой же, как заданная здесь высота.
+ */
+.category-boxes .category-box .logo, .category-boxes-with-topics .category-box .logo {height: 100px;}
+/* 2017-04-05 */
+.cooked h4, .cooked h5, .cooked h6, .d-editor-preview h4, .d-editor-preview h5, .d-editor-preview h6 {margin: 0 0 0.2em 0;}
+pre {margin-top: 0;}
+/* 2017-04-14 */
+#topic[data-topic-id="2775"] table td {vertical-align: top; border: 0;}
+/* 2017-04-30 */
+aside.onebox.githubblob  {border: 0; padding: 0; /*margin-bottom: -1em;*/}
+/* 2017-05-04 */
+pre.onebox {margin-bottom: 0;}
+/* 2017-05-04  В ядре: «padding: 0.5em». */
+.hljs {padding: 0;}
+.githubblob > header {display: none;}
+/**
+ * 2017-05-04
+ * В ядре «margin-bottom: 10px».
+ */
+aside.onebox .onebox-body h3, aside.onebox .onebox-body h4 {margin-bottom: 5px;}
+aside.onebox.githubblob .onebox-body > h4 > a {font-size: smaller;}
+/**
+ * 2017-05-04
+ * Замечание №1
+ * В ядре «margin-left: 40px».
+ * Я решил уменьшить этот отступ, чтобы больше места оставалось для кода.
+ * Замечание №2
+ * В ядре «margin-bottom: 9px».
+ */
+pre.onebox code ol.lines {margin-bottom: 0; margin-left: 35px;}
+/* 2017-05-04 Номера строк программного кода. */
+pre.onebox code ol.lines li:before {width: 30px; left: -35px;}
+/**
+ * 2017-05-04
+ * Замечание №1
+ * С недавних пор (заметил неделю назад) Discourse стал добавлять горизонтальную полосу прокрутки
+ * для блоков цитируемого с GitHub кода в том случае, когда строки кода слишком длинные.
+ * Моя заплатка устраняет эту проблему: строки кода теперь переносятся (как раньше).
+ * В ядре вместо моего правила стоит «white-space: pre».
+ * http://stackoverflow.com/a/5108401
+ * Замечание №2
+ * Оказалось, что правило «white-space: pre-wrap» ещё хуже:
+ * оно переносит программныф код в бессмысленных местах, делая его синтаксически некорректным.
+ * Поэтому вернул «white-space: pre».
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/white-space?v=example#Values
+ */
+pre.onebox code ol.lines li {white-space: pre;}
+/**
+ * 2017-05-04
+ * Ранее сам же ставил «margin-bottom: 16px» в плагине «df-core-private»:
+ * https://github.com/discourse-pro/df-core-private/blob/fdf48f1f9/assets/stylesheets/_topic.scss?ts=4#L81
+ */
+html.desktop-view body .row >.topic-body .contents img {margin-bottom: 8px;}
+/**
+ * 2017-05-09
+ * Используемый Discourse компилятор Markdown почему-то добавляет <br> между GitHub Onebox и <img>.
+ * Первой попыткой устрения этой проблемы было: «br + img {margin-top: 0 !important;}»
+ * Текущий вариант вроде получше.
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_selectors
+ */
+aside.onebox + br {display: none !important;}
