@@ -62,22 +62,6 @@ html.desktop-view {
 		> .topic-body {
 			float: none;
 			width: 100%; // The previous value was `87%` set at 2016-10-04.
-			.contents {
-				font-size: 14px;
-				line-height: 20px;
-				// 2023-03-07 I have removed it. I do not know why I used it before.
-				// margin-top: 8px;
-				h2 {
-					font-size: 1.4em;
-					margin:{top: 20px; bottom: 10px;}
-				}
-				h3 {
-					font-size: 1.3em;
-					margin:{top: 18px; bottom: 10px;}
-				}
-				h2 + h3 {margin-top: 0;}
-				img {margin:{top: 8px; bottom: 16px;};}
-			}
 			.topic-meta-data {
 				overflow: hidden;
 				&:after {clear: none;}
