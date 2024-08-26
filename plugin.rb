@@ -18,7 +18,10 @@ after_initialize do
 	# 2) The previous code was:
 	#	require 'categories_controller'
 	# https://github.com/discourse-pro/df-core-private/blob/1.1.5/plugin.rb#L16
-	load File.expand_path(Rails.root + 'app/controllers/categories_controller.rb')
+	# 3) Another working solution:
+	# 		load File.expand_path(Rails.root + 'app/controllers/category_featured_topic.rb')
+	# https://github.com/discourse-pro/df-core-private/blob/2024-08-26/plugin.rb#L21
+	require_dependency 'categories_controller'
 	CategoriesController.class_eval do
 		# 2018-01-10
 		# 1) «undefined method `before_filter' for CategoriesController:Class»
