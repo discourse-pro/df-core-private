@@ -76,11 +76,13 @@ html.desktop-view {
 	.contents {
 		h2 {
 			font-size: 1.4em;
-			margin:{top: 20px; bottom: 10px;}
+			// 2024-08-26 "Improve the appearance of headers": https://github.com/discourse-pro/df-core-private/issues/16
+			margin:{top: 0.5em; bottom: 0.25em;}
 		}
 		h3 {
 			font-size: 1.3em;
-			margin:{top: 18px; bottom: 10px;}
+			// 2024-08-26 "Improve the appearance of headers": https://github.com/discourse-pro/df-core-private/issues/16
+			margin:{top: 0.4em; bottom: 0.2em;}
 		}
 		h2 + h3 {margin-top: 0;}
 		img {margin:{top: 8px; bottom: 16px;};}
