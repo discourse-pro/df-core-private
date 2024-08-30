@@ -49,6 +49,8 @@ pre {
 	}
 }
 .container.posts {
+	// 2024-08-30 "Make the topics' content area wider": https://github.com/discourse-pro/df-core-private/issues/19
+	@media screen and (min-width: 925px) {grid-template-columns: 90% 10%;}
 	// 2022-08-14 https://github.com/discourse/discourse/blob/v2.9.0.beta9/app/assets/stylesheets/common/base/topic.scss#L29
 	margin-bottom: 0;
 	.topic-post {
