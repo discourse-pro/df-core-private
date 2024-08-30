@@ -5,7 +5,7 @@ code, pre {
 	font-weight: bold;
 }
 // 2024-08-30 "Make the topics' content area wider": https://github.com/discourse-pro/df-core-private/issues/19
-:root {--d-max-width: 1410px;}
+:root {--d-max-width: 95%;}
 pre {
 	// 2024-02-28
 	// 1) "A page with a long code block is displayed wrongly": https://github.com/discourse-pro/df-core/issues/17
