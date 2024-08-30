@@ -51,6 +51,10 @@ pre {
 .container.posts {
 	// 2022-08-14 https://github.com/discourse/discourse/blob/v2.9.0.beta9/app/assets/stylesheets/common/base/topic.scss#L29
 	margin-bottom: 0;
+	.topic-post {
+		// 2024-08-30 "Unstick the topic author's image": https://github.com/discourse-pro/df-core-private/issues/18
+		&.sticky-avatar > article > .row > .topic-avatar {position: revert !important;}
+	}
 	.topic-body {
 		.contents {
 			font-family: "Open Sans",sans-serif;
