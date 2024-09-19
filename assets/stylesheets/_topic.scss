@@ -152,3 +152,5 @@ aside.onebox {
 .githubblob > header {display: none;}
 // 2017-04-05
 .cooked, .d-editor-preview {h4, h5, h6 {margin: 0 0 0.2em 0;}}
+// 2024-09-20 "Unstick the topic's header": https://github.com/discourse-pro/df-core-private/issues/20
+.d-header-wrap {position: initial !important; z-index: 0 !important;}
