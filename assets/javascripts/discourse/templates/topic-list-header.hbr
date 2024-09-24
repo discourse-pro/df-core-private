@@ -30,7 +30,7 @@ https://github.com/discourse-pro/df-core-private/issues/11
 }}
 {{raw-plugin-outlet name="topic-list-header-after-main-link"}}
 {{#if showPosters}}
-  {{raw "topic-list-header-column" order='posters' ariaLabel=(i18n "df_empty")}}
+	{{raw "topic-list-header-column" order='posters' ariaLabel=(i18n "df_empty")}}
 {{/if}}
 {{raw "topic-list-header-column" sortable=sortable number='true' order='posts' name='replies'}}
 {{#if showLikes}}
