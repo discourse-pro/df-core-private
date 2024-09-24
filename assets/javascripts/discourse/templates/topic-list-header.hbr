@@ -28,6 +28,7 @@ https://github.com/discourse-pro/df-core-private/issues/11
 	showTopicsAndRepliesToggle=showTopicsAndRepliesToggle
 }}
 {{raw-plugin-outlet name='topic-list-header-after-main-link'}}
+{{plugin-outlet name='topic-list-header-after-main-link'}}
 {{#if showPosters}}
 	{{raw 'topic-list-header-column'
 		ariaLabel=(i18n 'df_empty')
