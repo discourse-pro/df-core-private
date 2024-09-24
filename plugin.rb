@@ -39,6 +39,8 @@ after_initialize do
 	# "Order topics on the home page by the number of views by default":
 	# https://github.com/discourse-pro/df-core-private/issues/21
 	require_dependency 'list_controller'
+	ListController.class_eval do
+	end
 	require_dependency 'topic_query'
 	TopicQuery.class_eval do
 		alias_method :core__default_results, :default_results
