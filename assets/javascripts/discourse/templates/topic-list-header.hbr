@@ -38,14 +38,6 @@ https://github.com/discourse-pro/df-core-private/issues/11
 	order='posts'
 	sortable=sortable
 }}
-{{#if showOpLikes}}
-	{{raw 'topic-list-header-column'
-		name='likes'
-		number='true'
-		order='op_likes'
-		sortable=sortable
-	}}
-{{/if}}
 {{raw 'topic-list-header-column'
 	name='views'
 	number='true'
