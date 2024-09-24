@@ -63,5 +63,10 @@ https://github.com/discourse-pro/df-core-private/issues/11
 	order='views'
 	sortable=sortable
 }}
-{{raw "topic-list-header-column" sortable=sortable number='true' order='activity' name='df_empty'}}
+{{raw "topic-list-header-column"
+	name='df_empty'
+	number='true'
+	order='activity'
+	sortable=sortable
+}}
 {{~raw-plugin-outlet name="topic-list-header-after"~}}
