@@ -35,6 +35,10 @@ after_initialize do
 				params[:parent_category_id] ? 'categories_with_featured_topics' : 'categories_and_latest_topics'
 		end
 	end
+	# 2024-09-24
+	# "Order topics on the home page by the number of views by default":
+	# https://github.com/discourse-pro/df-core-private/issues/21
+	require_dependency 'list_controller'
 	require_dependency 'topic_query'
 	TopicQuery.class_eval do
 		alias_method :core__default_results, :default_results
