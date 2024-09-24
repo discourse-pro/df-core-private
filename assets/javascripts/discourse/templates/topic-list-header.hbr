@@ -45,9 +45,10 @@ https://github.com/discourse-pro/df-core-private/issues/11
 	sortable=sortable
 }}
 {{raw 'topic-list-header-column'
-	name='df_empty'
+	name='activity'
 	number='true'
 	order='activity'
 	sortable=sortable
 }}
 {{~raw-plugin-outlet name='topic-list-header-after'~}}
+{{~plugin-outlet name='topic-list-header-after'~}}
