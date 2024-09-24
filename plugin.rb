@@ -35,11 +35,23 @@ after_initialize do
 				params[:parent_category_id] ? 'categories_with_featured_topics' : 'categories_and_latest_topics'
 		end
 	end
-	# 2024-09-24
-	# "Order topics on the home page by the number of views by default":
-	# https://github.com/discourse-pro/df-core-private/issues/21
 	require_dependency 'list_controller'
 	ListController.class_eval do
+		# 2024-09-24
+		# 1) "Order topics on the home page by the number of views by default":
+		# https://github.com/discourse-pro/df-core-private/issues/21
+		# @override
+		# @see https://github.com/discourse/discourse/blob/v3.4.0.beta1/app/controllers/list_controller.rb#L253-L266
+		def top_feed
+			discourse_expires_in 1.minute
+			@title = "#{SiteSetting.title} - #{I18n.t('rss_description.top')}"
+			@link = "#{Discourse.base_url}/top"
+			@atom_link = "#{Discourse.base_url}/top.rss"
+			@description = I18n.t('rss_description.top')
+			# 2024-09-24 https://github.com/discourse/discourse/blob/v3.4.0.beta1/app/controllers/list_controller.rb#L239-L251
+			@topic_list = TopicQuery.new(nil, {order: 'views'}.merge(build_topic_list_options)).list_latest
+			render 'list', formats: [:rss]
+		end
 	end
 	require_dependency 'topic_query'
 	TopicQuery.class_eval do
