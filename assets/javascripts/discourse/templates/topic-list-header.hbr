@@ -2,19 +2,19 @@
 1) "Reimplement new changes of  `app/assets/javascripts/discourse/app/raw-templates/topic-list-header.hbr`":
 https://github.com/discourse-pro/df-core-private/issues/11
 2) "The topics bulk actions icon is absent": https://github.com/discourse-pro/df-core-private/issues/10 }}
-{{~raw-plugin-outlet name="topic-list-header-before"~}}
+{{~raw-plugin-outlet name='topic-list-header-before'~}}
 {{#if bulkSelectEnabled}}
-	<th class="bulk-select topic-list-data">
+	<th class='bulk-select topic-list-data'>
 		{{#if canBulkSelect}}
 			{{#if experimentalTopicBulkActionsEnabled }}
-				{{raw "flat-button" class="bulk-select" icon="tasks" title="topics.bulk.toggle"}}
+				{{raw 'flat-button' class='bulk-select' icon='tasks' title='topics.bulk.toggle'}}
 			{{else}}
-				{{raw "flat-button" class="bulk-select" icon="list" title="topics.bulk.toggle"}}
+				{{raw 'flat-button' class='bulk-select' icon='list' title='topics.bulk.toggle'}}
 			{{/if}}
 		{{/if}}
 	</th>
 {{/if}}
-{{raw "topic-list-header-column"
+{{raw 'topic-list-header-column'
 	name='df_empty'
 	order='default'
 	bulkSelectEnabled=bulkSelectEnabled
@@ -28,21 +28,21 @@ https://github.com/discourse-pro/df-core-private/issues/11
 	showBulkToggle=toggleInTitle
 	showTopicsAndRepliesToggle=showTopicsAndRepliesToggle
 }}
-{{raw-plugin-outlet name="topic-list-header-after-main-link"}}
+{{raw-plugin-outlet name='topic-list-header-after-main-link'}}
 {{#if showPosters}}
-	{{raw "topic-list-header-column"
-		ariaLabel=(i18n "df_empty")
+	{{raw 'topic-list-header-column'
+		ariaLabel=(i18n 'df_empty')
 		order='posters'
 	}}
 {{/if}}
-{{raw "topic-list-header-column"
+{{raw 'topic-list-header-column'
 	name='replies'
 	number='true'
 	order='posts'
 	sortable=sortable
 }}
 {{#if showLikes}}
-	{{raw "topic-list-header-column"
+	{{raw 'topic-list-header-column'
 		name='likes'
 		number='true'
 		order='likes'
@@ -50,23 +50,23 @@ https://github.com/discourse-pro/df-core-private/issues/11
 	}}
 {{/if}}
 {{#if showOpLikes}}
-	{{raw "topic-list-header-column"
+	{{raw 'topic-list-header-column'
 		name='likes'
 		number='true'
 		order='op_likes'
 		sortable=sortable
 	}}
 {{/if}}
-{{raw "topic-list-header-column"
+{{raw 'topic-list-header-column'
 	name='views'
 	number='true'
 	order='views'
 	sortable=sortable
 }}
-{{raw "topic-list-header-column"
+{{raw 'topic-list-header-column'
 	name='df_empty'
 	number='true'
 	order='activity'
 	sortable=sortable
 }}
-{{~raw-plugin-outlet name="topic-list-header-after"~}}
+{{~raw-plugin-outlet name='topic-list-header-after'~}}
