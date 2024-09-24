@@ -5,6 +5,7 @@ https://github.com/discourse-pro/df-core-private/issues/11
 2024-09-24 https://github.com/discourse/discourse/blob/v3.4.0.beta1/app/assets/javascripts/discourse/app/raw-templates/topic-list-header.hbr
 }}
 {{~raw-plugin-outlet name='topic-list-header-before'~}}
+{{~plugin-outlet name='topic-list-header-before'~}}
 {{#if bulkSelectEnabled}}
 	<th class='bulk-select topic-list-data'>
 		{{#if canBulkSelect}}
