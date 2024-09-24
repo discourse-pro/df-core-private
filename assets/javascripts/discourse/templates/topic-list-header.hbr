@@ -30,7 +30,7 @@ https://github.com/discourse-pro/df-core-private/issues/11
 {{raw-plugin-outlet name='topic-list-header-after-main-link'}}
 {{plugin-outlet name='topic-list-header-after-main-link'}}
 {{#if showPosters}}
-	{{raw 'topic-list-header-column' name='df_empty' order='posters' screenreaderOnly='true'}}}
+	{{raw 'topic-list-header-column' name='df_empty' order='posters' screenreaderOnly='true'}}
 {{/if}}
 {{raw 'topic-list-header-column'
 	name='replies'
