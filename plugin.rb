@@ -29,6 +29,9 @@ after_initialize do
 		# 2) «`before_filter` has been deprecated in Rails 5.0 and removed in 5.1»
 		# https://stackoverflow.com/a/45015788
 		before_action :dfSetCategoryStyle
+		def categories_and_top
+			categories_and_topics(:top)
+		end
 		private
 		# 2024-09-25
 		# 1) "Order topics on the home page by the number of views by default":
