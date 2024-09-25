@@ -51,12 +51,13 @@ after_initialize do
 			result.category_list = CategoryList.new(guardian, category_options)
 			if topics_filter == :latest
 				result.topic_list = TopicQuery.new(current_user, topic_options).list_latest
-				result.topic_list.more_topics_url =
-				url_for(public_send("latest_path", sort: topic_options[:order] == "created" ? :created : nil),)
+				result.topic_list.more_topics_url = url_for(
+					public_send("latest_path", sort: topic_options[:order] == "created" ? :created : nil)
+				)
 			elsif topics_filter == :top
-				result.topic_list =
-				TopicQuery.new(current_user, topic_options).list_top_for(SiteSetting.top_page_default_timeframe.to_sym,)
-				result.topic_list.more_topics_url = url_for(public_send("top_path"))
+				topic_options[:order] = 'views'
+				result.topic_list = TopicQuery.new(current_user, topic_options).list_latest
+				result.topic_list.more_topics_url = url_for(public_send('latest_path'))
 			end
 			render_serialized(result, CategoryAndTopicListsSerializer, root: false)
 		end
