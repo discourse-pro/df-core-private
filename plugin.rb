@@ -37,17 +37,16 @@ after_initialize do
 		# @see https://github.com/discourse/discourse/blob/v3.4.0.beta1/app/controllers/categories_controller.rb#L519-L553
 		def categories_and_topics(topics_filter)
 			discourse_expires_in 1.minute
-			category_options = {
-				include_topics: false,
-				is_homepage: 'categories' == current_homepage,
-				page: params[:page],
-				parent_category_id: params[:parent_category_id]
-			}
 			topic_options = {per_page: CategoriesController.topics_per_page, no_definitions: true}
 			topic_options.merge!(build_topic_list_options)
 			style = SiteSetting.desktop_category_page_style
 			result = CategoryAndTopicLists.new
-			result.category_list = CategoryList.new(guardian, category_options)
+			result.category_list = CategoryList.new(guardian, {
+				include_topics: false,
+				is_homepage: 'categories' == current_homepage,
+				page: params[:page],
+				parent_category_id: params[:parent_category_id]
+			})
 			if topics_filter == :latest
 				topic_options[:order] = 'created' if style == 'categories_and_latest_topics_created_date'
 				result.topic_list = TopicQuery.new(current_user, topic_options).list_latest
