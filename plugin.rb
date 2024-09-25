@@ -39,13 +39,6 @@ after_initialize do
 		alias_method :core__default_results, :default_results
 		def default_results(options={})
 			options[:no_definitions] = false
-			# 2024-09-25
-			# "Order topics on the home page by the number of views by default":
-			# https://github.com/discourse-pro/df-core-private/issues/21
-			filter = (options[:filter] || options[:f])
-			if filter.blank? && options[:order].nil?
-				options[:order] = 'views'
-			end
 			core__default_results options
 		end
 	end
