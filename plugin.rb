@@ -43,7 +43,7 @@ after_initialize do
 				include_topics: false,
 				page: params[:page],
 			}
-			topic_options = { per_page: CategoriesController.topics_per_page, no_definitions: true }
+			topic_options = {per_page: CategoriesController.topics_per_page, no_definitions: true}
 			topic_options.merge!(build_topic_list_options)
 			style = SiteSetting.desktop_category_page_style
 			topic_options[:order] = "created" if style == "categories_and_latest_topics_created_date"
