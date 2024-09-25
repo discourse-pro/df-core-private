@@ -41,12 +41,12 @@ after_initialize do
 			discourse_expires_in 1.minute
 			@description = SiteSetting.site_description
 			parent_category =
-			if params[:parent_category_id].present?
-				Category.find_by_slug(params[:parent_category_id]) ||
-				Category.find_by(id: params[:parent_category_id].to_i)
-			elsif params[:category_slug_path_with_id].present?
-				Category.find_by_slug_path_with_id(params[:category_slug_path_with_id])
-			end
+				if params[:parent_category_id].present?
+					Category.find_by_slug(params[:parent_category_id]) ||
+					Category.find_by(id: params[:parent_category_id].to_i)
+				elsif params[:category_slug_path_with_id].present?
+					Category.find_by_slug_path_with_id(params[:category_slug_path_with_id])
+				end
 			include_subcategories =
 				SiteSetting.desktop_category_page_style == "subcategories_with_featured_topics" ||
 				params[:include_subcategories] == "true"
