@@ -39,7 +39,6 @@ after_initialize do
 			discourse_expires_in 1.minute
 			topic_options = {per_page: CategoriesController.topics_per_page, no_definitions: true}
 			topic_options.merge!(build_topic_list_options)
-			style = SiteSetting.desktop_category_page_style
 			result = CategoryAndTopicLists.new
 			result.category_list = CategoryList.new(guardian, {
 				include_topics: false,
@@ -48,7 +47,9 @@ after_initialize do
 				parent_category_id: params[:parent_category_id]
 			})
 			if topics_filter == :latest
-				topic_options[:order] = 'created' if style == 'categories_and_latest_topics_created_date'
+				if 'categories_and_latest_topics_created_date' == SiteSetting.desktop_category_page_style
+					topic_options[:order] = 'created'
+				end
 				result.topic_list = TopicQuery.new(current_user, topic_options).list_latest
 				result.topic_list.more_topics_url = url_for(
 					public_send("latest_path", sort: topic_options[:order] == "created" ? :created : nil)
