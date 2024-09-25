@@ -30,27 +30,39 @@ after_initialize do
 		# https://stackoverflow.com/a/45015788
 		before_action :dfSetCategoryStyle
 		private
-		def dfSetCategoryStyle
-			SiteSetting.desktop_category_page_style =
-				params[:parent_category_id] ? 'categories_with_featured_topics' : 'categories_and_latest_topics'
-		end
-	end
-	require_dependency 'list_controller'
-	ListController.class_eval do
-		# 2024-09-24
+		# 2024-09-25
 		# 1) "Order topics on the home page by the number of views by default":
 		# https://github.com/discourse-pro/df-core-private/issues/21
 		# @override
-		# @see https://github.com/discourse/discourse/blob/v3.4.0.beta1/app/controllers/list_controller.rb#L253-L266
-		def top_feed
+		# @see https://github.com/discourse/discourse/blob/v3.4.0.beta1/app/controllers/categories_controller.rb#L519-L553
+		def categories_and_topics(topics_filter)
 			discourse_expires_in 1.minute
-			@title = "#{SiteSetting.title} - #{I18n.t('rss_description.top')}"
-			@link = "#{Discourse.base_url}/top"
-			@atom_link = "#{Discourse.base_url}/top.rss"
-			@description = I18n.t('rss_description.top')
-			# 2024-09-24 https://github.com/discourse/discourse/blob/v3.4.0.beta1/app/controllers/list_controller.rb#L239-L251
-			@topic_list = TopicQuery.new(nil, {order: 'views'}.merge(build_topic_list_options)).list_latest
-			render 'list', formats: [:rss]
+			category_options = {
+				is_homepage: current_homepage == "categories",
+				parent_category_id: params[:parent_category_id],
+				include_topics: false,
+				page: params[:page],
+			}
+			topic_options = { per_page: CategoriesController.topics_per_page, no_definitions: true }
+			topic_options.merge!(build_topic_list_options)
+			style = SiteSetting.desktop_category_page_style
+			topic_options[:order] = "created" if style == "categories_and_latest_topics_created_date"
+			result = CategoryAndTopicLists.new
+			result.category_list = CategoryList.new(guardian, category_options)
+			if topics_filter == :latest
+				result.topic_list = TopicQuery.new(current_user, topic_options).list_latest
+				result.topic_list.more_topics_url =
+				url_for(public_send("latest_path", sort: topic_options[:order] == "created" ? :created : nil),)
+			elsif topics_filter == :top
+				result.topic_list =
+				TopicQuery.new(current_user, topic_options).list_top_for(SiteSetting.top_page_default_timeframe.to_sym,)
+				result.topic_list.more_topics_url = url_for(public_send("top_path"))
+			end
+			render_serialized(result, CategoryAndTopicListsSerializer, root: false)
+		end
+		def dfSetCategoryStyle
+			SiteSetting.desktop_category_page_style =
+				params[:parent_category_id] ? 'categories_with_featured_topics' : 'categories_and_latest_topics'
 		end
 	end
 	require_dependency 'topic_query'
