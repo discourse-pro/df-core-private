@@ -71,7 +71,7 @@ after_initialize do
 						MultiJson.dump(CategoryListSerializer.new(@category_list, scope: guardian)),
 					)
 					style = SiteSetting.desktop_category_page_style
-					topic_options = { per_page: CategoriesController.topics_per_page, no_definitions: true }
+					topic_options = {per_page: CategoriesController.topics_per_page, no_definitions: true}
 					if style == "categories_and_latest_topics_created_date"
 						topic_options[:order] = "created"
 						@topic_list = TopicQuery.new(current_user, topic_options).list_latest
@@ -81,9 +81,9 @@ after_initialize do
 						@topic_list.more_topics_url = url_for(public_send("latest_path"))
 					elsif style == "categories_and_top_topics"
 						@topic_list =
-						TopicQuery.new(current_user, topic_options).list_top_for(
-							SiteSetting.top_page_default_timeframe.to_sym,
-						)
+							TopicQuery.new(current_user, topic_options).list_top_for(
+								SiteSetting.top_page_default_timeframe.to_sym,
+							)
 						@topic_list.more_topics_url = url_for(public_send("top_path"))
 					end
 					if @topic_list.present? && @topic_list.topics.present?
