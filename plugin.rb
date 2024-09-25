@@ -38,10 +38,10 @@ after_initialize do
 		def categories_and_topics(topics_filter)
 			discourse_expires_in 1.minute
 			category_options = {
-				is_homepage: current_homepage == "categories",
-				parent_category_id: params[:parent_category_id],
 				include_topics: false,
+				is_homepage: 'categories' == current_homepage,
 				page: params[:page],
+				parent_category_id: params[:parent_category_id]
 			}
 			topic_options = {per_page: CategoriesController.topics_per_page, no_definitions: true}
 			topic_options.merge!(build_topic_list_options)
