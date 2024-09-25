@@ -53,7 +53,7 @@ after_initialize do
 			category_options = {
 				include_subcategories: include_subcategories,
 				include_topics: include_topics(parent_category),
-				is_homepage: current_homepage == "categories",
+				is_homepage: 'categories' == current_homepage,
 				page: params[:page],
 				parent_category_id: parent_category&.id,
 				tag: params[:tag],
@@ -143,6 +143,7 @@ after_initialize do
 		alias_method :core__default_results, :default_results
 		def default_results(options={})
 			options[:no_definitions] = false
+			options[:order] = 'views'
 			core__default_results options
 		end
 	end
