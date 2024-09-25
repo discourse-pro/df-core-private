@@ -42,7 +42,8 @@ after_initialize do
 			# 2024-09-25
 			# "Order topics on the home page by the number of views by default":
 			# https://github.com/discourse-pro/df-core-private/issues/21
-			if options[:order].nil?
+			filter = (options[:filter] || options[:f])
+			if filter.blank? && options[:order].nil?
 				options[:order] = 'views'
 			end
 			core__default_results options
