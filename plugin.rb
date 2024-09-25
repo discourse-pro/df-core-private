@@ -40,10 +40,10 @@ after_initialize do
 		# @see https://github.com/discourse/discourse/blob/v3.4.0.beta1/app/controllers/categories_controller.rb#L519-L553
 		def categories_and_topics(topics_filter)
 			discourse_expires_in 1.minute
-			topic_options = {per_page: CategoriesController.topics_per_page, no_definitions: true}
-			topic_options.merge!(build_topic_list_options)
-			result = CategoryAndTopicLists.new
-			result.category_list = CategoryList.new(guardian, {
+			cfg = {per_page: CategoriesController.topics_per_page, no_definitions: true}
+			cfg.merge!(build_topic_list_options)
+			r = CategoryAndTopicLists.new
+			r.category_list = CategoryList.new(guardian, {
 				include_topics: false,
 				is_homepage: 'categories' == current_homepage,
 				page: params[:page],
@@ -51,18 +51,18 @@ after_initialize do
 			})
 			if topics_filter == :latest
 				if 'categories_and_latest_topics_created_date' == SiteSetting.desktop_category_page_style
-					topic_options[:order] = 'created'
+					cfg[:order] = 'created'
 				end
-				result.topic_list = TopicQuery.new(current_user, topic_options).list_latest
-				result.topic_list.more_topics_url = url_for(
-					public_send("latest_path", sort: topic_options[:order] == "created" ? :created : nil)
+				r.topic_list = TopicQuery.new(current_user, cfg).list_latest
+				r.topic_list.more_topics_url = url_for(
+					public_send("latest_path", sort: cfg[:order] == "created" ? :created : nil)
 				)
 			elsif topics_filter == :top
-				topic_options[:order] = 'views'
-				result.topic_list = TopicQuery.new(current_user, topic_options).list_latest
-				result.topic_list.more_topics_url = url_for(public_send('latest_path'))
+				cfg[:order] = 'views'
+				r.topic_list = TopicQuery.new(current_user, cfg).list_latest
+				r.topic_list.more_topics_url = url_for(public_send('latest_path'))
 			end
-			render_serialized(result, CategoryAndTopicListsSerializer, root: false)
+			render_serialized(r, CategoryAndTopicListsSerializer, root: false)
 		end
 		def dfSetCategoryStyle
 			SiteSetting.desktop_category_page_style =
