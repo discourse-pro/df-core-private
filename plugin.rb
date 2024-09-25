@@ -55,7 +55,7 @@ after_initialize do
 				end
 				r.topic_list = TopicQuery.new(current_user, cfg).list_latest
 				r.topic_list.more_topics_url = url_for(
-					public_send("latest_path", sort: cfg[:order] == "created" ? :created : nil)
+					public_send('latest_path', sort: cfg[:order] == 'created' ? :created : nil)
 				)
 			elsif topics_filter == :top
 				cfg[:order] = 'views'
