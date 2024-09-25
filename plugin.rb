@@ -80,6 +80,7 @@ after_initialize do
 						@topic_list = TopicQuery.new(current_user, topic_options).list_latest
 						@topic_list.more_topics_url = url_for(public_send("latest_path"))
 					elsif style == "categories_and_top_topics"
+						topic_options[:order] = "views"
 						@topic_list =
 							TopicQuery.new(current_user, topic_options).list_top_for(
 								SiteSetting.top_page_default_timeframe.to_sym,
@@ -125,7 +126,7 @@ after_initialize do
 			elsif topics_filter == :top
 				cfg[:order] = 'views'
 				r.topic_list = TopicQuery.new(current_user, cfg).list_latest
-				r.topic_list.more_topics_url = url_for(public_send('latest_path'))
+				r.topic_list.more_topics_url = url_for(public_send('top_path'))
 			end
 			render_serialized(r, CategoryAndTopicListsSerializer, root: false)
 		end
@@ -133,6 +134,9 @@ after_initialize do
 			SiteSetting.desktop_category_page_style =
 				params[:parent_category_id] ? 'categories_with_featured_topics' : 'categories_and_latest_topics'
 		end
+	end
+	require_dependency 'topics_controller'
+	TopicQuery.class_eval do
 	end
 	require_dependency 'topic_query'
 	TopicQuery.class_eval do
