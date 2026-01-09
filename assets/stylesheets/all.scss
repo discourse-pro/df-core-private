@@ -9,9 +9,9 @@
 // 2026-01-09
 // «SassC::SyntaxError: Error: Can't find stylesheet to import» / «plugins/df-core-private/assets/stylesheets/generic»:
 // https://github.com/discourse-pro/df-core-private/issues/22
-@import 'plugins/df-core-private/assets/stylesheets/_generic';
-@import 'plugins/df-core-private/assets/stylesheets/_categories';
-@import 'plugins/df-core-private/assets/stylesheets/_topic';
-@import 'plugins/df-core-private/assets/stylesheets/_topics';
-@import 'plugins/df-core-private/assets/stylesheets/_mobile';
-@import 'plugins/df-core-private/assets/stylesheets/_customize';
+@import '_generic';
+@import '_categories';
+@import '_topic';
+@import '_topics';
+@import '_mobile';
+@import '_customize';
